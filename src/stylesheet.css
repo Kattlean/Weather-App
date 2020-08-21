@@ -1,0 +1,99 @@
+body {
+  color: #fff;
+  border-color: #092040;
+  max-width: 600px;
+  margin: auto;
+  text-shadow: 1px 1px 2px #000;
+}
+/********these are the top city selectors*************/
+.card-link {
+  color: #abcde9;
+}
+.card-link:hover {
+  color: #092040;
+}
+/**/
+
+/****************the extra info of "today's"*******************/
+p {
+  font-size: 1.1rem;
+  color: #abcde9;
+}
+.mid {
+  margin-left: 7%;
+}
+/**/
+
+.the-nav-bar {
+  margin: 10px 0;
+}
+
+.card {
+  margin: auto;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+
+.selected-city {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+/********* Button and it's hover properties*************/
+.btn {
+  border-color: #092040;
+  color: #092040;
+}
+.btn:hover {
+  background: #092040;
+  color: #fff;
+  border-color: #092040;
+}
+/**/
+
+.today {
+  font-size: 80px; /********** BIG image***********/
+}
+
+/*************images of weather***************/
+.smal-img {
+  font-size: 50px;
+  color: #fff;
+}
+/**/
+
+.card-more-info {
+  float: left;
+  padding: 0px 10px;
+}
+.info {
+  margin: 0;
+  padding: 20 100px 0 0;
+  max-width: 400px;
+}
+.row {
+  flex-wrap: nowrap;
+}
+
+.day {
+  color: #abcde9;
+  width: 20%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.col-5 {
+  padding: 0 0;
+}
+.col-2,
+.col-4 {
+  padding: 10px 5px 0;
+}
+.selected-city {
+  padding: 0 0 0 16px;
+}
+.container {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin: 10% auto;
+  padding: 0;
+}

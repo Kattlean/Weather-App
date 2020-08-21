@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/da5393da15.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/stylesheet.css" />
+
+    <title>Weather by Kattlean</title>
+  </head>
+  <body>
+    <!--The whole box application-->
+    <div class="container">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <!--Here are the 3 cities at the top-->
+        <div class="the-nav-bar">
+          <a href="#" id="current-city" class="card-link">Current city</a>
+          <a href="#" id="last-city" class="card-link">Last city</a>
+          <a href="#" id="celsiusLink" class="card-link">ºC</a>
+          <a href="#" id="fahrenheitLink" class="card-link">ºF</a>
+        </div>
+
+        <!--This is city name and the the search bar-->
+        <div class="">
+          <form id="search-city" class="search-form">
+            <div class="row">
+              <div class="col-6 selected-city">
+                <h1></h1>
+                  <span id="temperature">--º</span>
+                  <span id="city">Lisboa, PT</span>
+                </h1>
+              </div>
+              <div class="col-4">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder="Enter city name here"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-2">
+                <button type="button" class="btn btn-outline-info">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Here is the annoying stuff that doesn't want to be in place.-->
+        <div class="todays-info row mx-md-n2">
+          <i class="card-more-info fas fa-sun today"> </i>
+          <div class="card-more-info col px-md-4 mid">
+            <p class="info day-hour">
+              Monday 14:00
+            </p>
+            <p class="info say-status">
+              Sunny
+            </p>
+            <p class="info degrees">
+              22º | 32º
+            </p>
+          </div>
+
+          <div class="card-more-info col px-md-4">
+            <p class="info a precipitation">
+              Precipitation: --%
+            </p>
+            <p class="info a humidity">
+              Humidity: --%
+            </p>
+            <p class="info a wind">
+              Wind speed: -- km/h
+            </p>
+          </div>
+        </div>
+        <br />
+        <!--Weather for the next 5 days.-->
+        <div class="weekdays">
+          <div class="row">
+            <div class="day col-2">
+              Mon
+              <br />
+              21°| 30°
+              <br />
+              <i class="fas fa-sun smal-img"> </i>
+            </div>
+            <div class="day col-2">
+              Tue
+              <br />
+              19°| 28°
+              <br />
+              <i class="fas fa-cloud-sun smal-img"> </i>
+            </div>
+            <div class="day col-2">
+              Wed
+              <br />
+              20°| 31°
+              <br />
+              <i class="fas fa-sun smal-img"> </i>
+            </div>
+            <div class="day col-2">
+              Thu
+              <br />
+              21°| 28°
+              <br />
+              <i class="fas fa-cloud-sun smal-img"> </i>
+            </div>
+            <div class="day col-2">
+              Fri
+              <br />
+              22°| 33°
+              <br />
+              <i class="fas fa-sun smal-img"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src\index.js"></script>
+  </body>
+</html>
