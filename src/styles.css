@@ -99,6 +99,7 @@ p {
 }
 /* Footer */
 
-.repository {
+.footer {
   color: #000;
+  text-align: center;
 }
