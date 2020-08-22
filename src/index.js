@@ -46,14 +46,14 @@ searchForm.addEventListener("submit", searchCity);
 // ---------------------- Temperature ----------------------
 
 var mod = true;
+let temperature;
 
 function convertToFahrenheit(event) {
   event.preventDefault();
   if (mod == true) {
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(
-      (temperatureElement.textContent * 9) / 5 + 32
-    );
+    temperature = Math.round((temperature * 9) / 5 + 32);
+    temperatureElement.textContent = `${temperature}º`;
     console.log(temperatureElement);
     mod = false;
   }
@@ -63,9 +63,8 @@ function convertToCelsius(event) {
   event.preventDefault();
   if (mod == false) {
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.textContent = Math.round(
-      ((temperatureElement.innerHTML - 32) * 5) / 9
-    );
+    temperature = Math.round(((temperature - 32) * 5) / 9);
+    temperatureElement.textContent = `${temperature}º`;
     console.log(temperatureElement);
     mod = true;
   }
@@ -82,13 +81,13 @@ celsiusLink.addEventListener("click", convertToCelsius);
 function displayWeather(response) {
   console.log(response);
   let h1City = document.querySelector("#city");
-  let tempH1 = document.querySelector("#temperature");
-  let temperature = Math.round(response.data.main.temp);
+  let temperatureElement = document.querySelector("#temperature");
+  temperature = Math.round(response.data.main.temp);
   let description = document.querySelector(".say-status");
   let maxMinTemp = document.querySelector(".degrees");
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind");
-  tempH1.textContent = `${temperature}º `;
+  temperatureElement.textContent = `${temperature}º `;
   h1City.textContent = `${response.data.name}, ${response.data.sys.country}`;
   description.textContent = response.data.weather[0].main;
   maxMinTemp.textContent = `${Math.round(
@@ -104,12 +103,10 @@ function retrievePosition(position, bool) {
   let apiKey = "d5e31ad7d52798f2506ac257f4a8818a";
   let url = "";
   if (bool) {
-    console.log("I am in if statement");
     let lat = position.coord.lat;
     let lon = position.coord.lon;
     url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   } else {
-    console.log("I am in else statement");
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
