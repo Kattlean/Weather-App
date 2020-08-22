@@ -20,6 +20,8 @@ function updateDate() {
   }
   if (minutes < 10) {
     minutes = `0${minutes}`;
+  } else {
+    minutes = `${minutes}`;
   }
   changeToday.textContent = `${today} ${hour}:${minutes}`;
 }
