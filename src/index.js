@@ -82,12 +82,6 @@ function displayWeather(response) {
   console.log(response);
   let h1City = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
-  if (mod == false) {
-    convertToCelsius;
-  }
-  if (mod == true) {
-    convertToFahrenheit;
-  }
   temperature = Math.round(response.data.main.temp);
   let description = document.querySelector(".say-status");
   let maxMinTemp = document.querySelector(".degrees");
