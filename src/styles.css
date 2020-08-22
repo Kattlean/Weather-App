@@ -30,12 +30,8 @@ p {
 
 .card {
   margin: auto;
-  background: linear-gradient(
-    355deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(108, 142, 180, 1) 100%
-  );
+  background-color: #0cbaba;
+  background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
 }
 
 .selected-city {
