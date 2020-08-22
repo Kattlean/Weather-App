@@ -30,12 +30,11 @@ p {
 
 .card {
   margin: auto;
-  background: rgb(2, 0, 36);
   background: linear-gradient(
     355deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(28, 28, 124, 1) 0%,
-    rgba(9, 153, 182, 1) 100%
+    rgba(0, 0, 0, 1) 0%,
+    rgba(89, 163, 246, 1) 100%
   );
 }
 
