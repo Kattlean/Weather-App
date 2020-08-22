@@ -30,7 +30,7 @@ p {
 
 .card {
   margin: auto;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 50%);
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
 }
 
 .selected-city {
