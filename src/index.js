@@ -1,7 +1,5 @@
 // ---------------------- Date and time ----------------------
-let now = new Date();
-let hour = now.getHours();
-let minutes = now.getMinutes();
+
 let weekDays = [
   "Sunday",
   "Monday",
@@ -15,9 +13,12 @@ let today = weekDays[now.getDay()];
 let changeToday = document.querySelector(".day-hour");
 
 function updateDate() {
+  let now = new Date();
+  let hour = now.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
+  let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
