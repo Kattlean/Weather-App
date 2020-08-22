@@ -1,4 +1,4 @@
-// ---------------------- Current week day and hour ----------------------
+// ---------------------- Date and time ----------------------
 let now = new Date();
 let hour = now.getHours();
 let minutes = now.getMinutes();
