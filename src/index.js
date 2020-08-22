@@ -15,6 +15,12 @@ let today = weekDays[now.getDay()];
 let changeToday = document.querySelector(".day-hour");
 
 function updateDate() {
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   changeToday.textContent = `${today} ${hour}:${minutes}`;
 }
 
