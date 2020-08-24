@@ -12,6 +12,9 @@ body {
 .card-link:hover {
   color: #092040;
 }
+.link-selected {
+  color: #092040;
+}
 
 /****************the extra info of "today's"*******************/
 p {

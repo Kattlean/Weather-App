@@ -73,12 +73,12 @@ function convertToCelsius(event) {
 function activeDisabled() {
   let celsiusLink = document.querySelector("#celsiusLink");
   let fahrenheitLink = document.querySelector("#fahrenheitLink");
-  if (mod == true) {
-    fahrenheitLink.classList.remove("active");
-    celsiusLink.classList.add("disabled");
+  if (mod == false) {
+    fahrenheitLink.classList.remove("link-selected");
+    celsiusLink.classList.toggle("link-selected");
   } else {
-    fahrenheitLink.classList.add("disabled");
-    celsiusLink.classList.remove("active");
+    celsiusLink.classList.remove("link-selected");
+    fahrenheitLink.classList.toggle("link-selected");
   }
 }
 
