@@ -45,6 +45,101 @@ searchForm.addEventListener("submit", searchCity);
 
 // ---------------------- Temperature ----------------------
 
+let dailyIcons = [
+  // ---------------------- Day time icons ----------------------
+  {
+    name: "clear sky",
+    defaultIcon: "http://openweathermap.org/img/wn/01d@2x.png",
+    newIcon: "fa-sun",
+  },
+  {
+    name: "few clouds",
+    defaultIcon: "http://openweathermap.org/img/wn/02d@2x.png",
+    newIcon: "fa-cloud-sun",
+  },
+  {
+    name: "scattered clouds",
+    defaultIcon: "http://openweathermap.org/img/wn/03d@2x.png",
+    newIcon: "fa-cloud",
+  },
+  {
+    name: "	broken clouds",
+    defaultIcon: "http://openweathermap.org/img/wn/04d@2x.png",
+    newIcon: "fa-cloud",
+  },
+  {
+    name: "	shower rain",
+    defaultIcon: "http://openweathermap.org/img/wn/09d@2x.png",
+    newIcon: "fa-cloud-showers-heavy",
+  },
+  {
+    name: "	rain",
+    defaultIcon: "http://openweathermap.org/img/wn/10d@2x.png",
+    newIcon: "fa-cloud-sun-rain",
+  },
+  {
+    name: "	thunderstorm",
+    defaultIcon: "http://openweathermap.org/img/wn/11d@2x.png",
+    newIcon: "fa-bolt",
+  },
+  {
+    name: "	snow",
+    defaultIcon: "http://openweathermap.org/img/wn/13d@2x.png",
+    newIcon: "fa-snowflake",
+  },
+  {
+    name: "	mist",
+    defaultIcon: "http://openweathermap.org/img/wn/50d@2x.png",
+    newIcon: "fa-smog",
+  },
+  // ---------------------- Night time icons ----------------------
+  {
+    name: "clear night sky",
+    defaultIcon: "http://openweathermap.org/img/wn/01n@2x.png",
+    newIcon: "fa-moon",
+  },
+  {
+    name: "cloud moon",
+    defaultIcon: "http://openweathermap.org/img/wn/02n@2x.png",
+    newIcon: "fa-cloud-moon",
+  },
+  {
+    name: "night scattered clouds",
+    defaultIcon: "http://openweathermap.org/img/wn/03n@2x.png",
+    newIcon: "fa-cloud",
+  },
+  {
+    name: "night broken clouds",
+    defaultIcon: "http://openweathermap.org/img/wn/04n@2x.png",
+    newIcon: "fa-cloud",
+  },
+  {
+    name: "night shower rain",
+    defaultIcon: "http://openweathermap.org/img/wn/09n@2x.png",
+    newIcon: "fa-cloud-showers-heavy",
+  },
+  {
+    name: "night	rain",
+    defaultIcon: "http://openweathermap.org/img/wn/10n@2x.png",
+    newIcon: "fa-cloud-sun-rain",
+  },
+  {
+    name: "night	thunderstorm",
+    defaultIcon: "http://openweathermap.org/img/wn/11n@2x.png",
+    newIcon: "fa-bolt",
+  },
+  {
+    name: "night	snow",
+    defaultIcon: "http://openweathermap.org/img/wn/13n@2x.png",
+    newIcon: "fa-snowflake",
+  },
+  {
+    name: "night	mist",
+    defaultIcon: "http://openweathermap.org/img/wn/50n@2x.png",
+    newIcon: "fa-smog",
+  },
+];
+
 var mod = true;
 let temperature;
 
@@ -98,6 +193,7 @@ function displayWeather(response) {
   let maxMinTemp = document.querySelector(".degrees");
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind");
+
   temperature = Math.round(response.data.main.temp);
   temperatureElement.textContent = `${temperature}º `;
   h1City.textContent = `${response.data.name}, ${response.data.sys.country}`;
