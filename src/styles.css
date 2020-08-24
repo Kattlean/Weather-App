@@ -43,7 +43,7 @@ p {
 /********* Button and it's hover properties*************/
 .btn {
   border-color: #092040;
-  color: #092040;
+  color: #abcde9;
 }
 .btn:hover {
   background: #092040;
