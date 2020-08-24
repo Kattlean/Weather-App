@@ -54,7 +54,7 @@ function convertToFahrenheit(event) {
     let temperatureElement = document.querySelector("#temperature");
     temperature = Math.round((temperature * 9) / 5 + 32);
     temperatureElement.textContent = `${temperature}º`;
-    console.log(temperatureElement);
+    activeDisabled();
     mod = false;
   }
 }
@@ -65,8 +65,20 @@ function convertToCelsius(event) {
     let temperatureElement = document.querySelector("#temperature");
     temperature = Math.round(((temperature - 32) * 5) / 9);
     temperatureElement.textContent = `${temperature}º`;
-    console.log(temperatureElement);
+    activeDisabled();
     mod = true;
+  }
+}
+
+function activeDisabled() {
+  let celsiusLink = document.querySelector("#celsiusLink");
+  let fahrenheitLink = document.querySelector("#fahrenheitLink");
+  if (mod == true) {
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("disabled");
+  } else {
+    fahrenheitLink.classList.add("disabled");
+    celsiusLink.classList.remove("active");
   }
 }
 
@@ -82,11 +94,11 @@ function displayWeather(response) {
   console.log(response);
   let h1City = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
-  temperature = Math.round(response.data.main.temp);
   let description = document.querySelector(".say-status");
   let maxMinTemp = document.querySelector(".degrees");
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind");
+  temperature = Math.round(response.data.main.temp);
   temperatureElement.textContent = `${temperature}º `;
   h1City.textContent = `${response.data.name}, ${response.data.sys.country}`;
   description.textContent = response.data.weather[0].main;
