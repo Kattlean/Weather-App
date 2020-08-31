@@ -215,11 +215,11 @@ function retrievePosition(position, bool) {
   if (bool) {
     let lat = position.coord.lat;
     let lon = position.coord.lon;
-    url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   } else {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   }
   axios.get(url).then(displayWeather);
 }
