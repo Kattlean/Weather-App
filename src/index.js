@@ -166,10 +166,23 @@ function displayWeather(response) {
 
 // ---------------------- Forecast ----------------------
 
-function displayForecast(response) {
-  
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML + `<div class="day col-2">
+                  <div class="forecast-day">${day}</div>
+                  <i class="fas fa-sun smal-img"></i>
+                  <div class="forecast-temperature">
+                    <span class="forecast-temp-max">--º</span>
+                    <span class="forecast-temp-min">--º</span>
+                  </div>
+                </div>`
+  });  
 }
-console.log(response);
+
 // ---------------------- Location ----------------------
 
 function retrievePosition(position, bool) {
@@ -238,3 +251,5 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+displayForecast();
