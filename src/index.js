@@ -166,7 +166,8 @@ function displayWeather(response) {
 
 // ---------------------- Forecast ----------------------
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = `<div class="row">`;
@@ -184,13 +185,23 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+  }
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "2d0f7b27af6ec29632e031d46a498d7e";
+  let apiUrl = "";
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.coords.latitude}&lon=${coordinates.coords.longitude}&appid=${apiKey}&units=metric`;
+  
+  console.log(apiUrl);
+  
 }
+
 
 // ---------------------- Location ----------------------
 
 function retrievePosition(position, bool) {
-  let apiKey = "d5e31ad7d52798f2506ac257f4a8818a";
+  let apiKey = "2d0f7b27af6ec29632e031d46a498d7e";
   let apiUrl = "";
   if (bool) {
     let lat = position.coord.lat;
@@ -203,6 +214,7 @@ function retrievePosition(position, bool) {
   }
   axios.get(apiUrl).then(displayWeather);
 }
+
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
@@ -255,5 +267,3 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", convertToCelsius);
-
-displayForecast();
