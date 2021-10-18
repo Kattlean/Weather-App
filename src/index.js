@@ -144,6 +144,8 @@ let dailyIcons = [
 ];
 
 function displayWeather(response) {
+  // console.log(response.data);
+
   let h1City = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let description = document.querySelector(".say-status");
@@ -162,19 +164,20 @@ function displayWeather(response) {
   wind.textContent = `Wind speed: ${Number(
     Math.round(response.data.wind.speed * 3.6)
   )} km/h`;
+  
 }
 
 // ---------------------- Forecast ----------------------
 
 function displayForecast(response) {
-  console.log(response);
+  let forecast = response;
   let forecastElement = document.querySelector("#forecast");
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = `<div class="row">`;
 
-  days.forEach(function (day) {
+  days.forEach(function (forecastDay) {
     forecastHTML = forecastHTML + `<div class="day col-2">
-                  <div class="forecast-day">${day}</div>
+                  <div class="forecast-day">${forecastDay.dt}</div>
                   <i class="fas fa-sun smal-img"></i>
                   <div class="forecast-temperature">
                     <span class="forecast-temp-max">--º</span>
@@ -182,20 +185,21 @@ function displayForecast(response) {
                   </div>
                 </div>`
   });
-
+  
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+
   
 function getForecast(coordinates) {
   console.log(coordinates);
+  let lat = coordinates.data.lat;
+  let lon = coordinates.data.lon;
   let apiKey = "2d0f7b27af6ec29632e031d46a498d7e";
   let apiUrl = "";
-  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.coords.latitude}&lon=${coordinates.coords.longitude}&appid=${apiKey}&units=metric`;
-  
-  console.log(apiUrl);
-}
-
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+} 
 
 // ---------------------- Location ----------------------
 
@@ -222,10 +226,7 @@ currentLocation.addEventListener("click", () => {
 });
 
 
-// let lastLocation  = document.querySelector("#last-city");
-// lastLocation.addEventListener("click", () => {
-//   navigator.geolocation.getLastLocation ()
-//  });
+
 // ---------------------- Temperature ----------------------
 
 var mod = true;
