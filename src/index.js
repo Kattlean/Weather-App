@@ -194,8 +194,6 @@ function displayForecast(response) {
   
 function getForecast(coordinates) {
   console.log(coordinates);
-  let lat = coordinates.data.lat;
-  let lon = coordinates.data.lon;
   let apiKey = "2d0f7b27af6ec29632e031d46a498d7e";
   let apiUrl = "";
   apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
