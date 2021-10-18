@@ -28,20 +28,20 @@ setInterval(updateDate, 1000); //Runs the "func" function every second
 
 // ---------------------- Search Engine ----------------------
 
-let searchForm = document.querySelector("form");
+let searchForm = document.querySelector("#search-city");
 let historico = "";
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-input");
   let city = cityInput["value"];
   historico = city;
-  let apiKey = "d5e31ad7d52798f2506ac257f4a8818a";
+  let apiKey = "2d0f7b27af6ec29632e031d46a498d7e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
   axios.get(apiUrl).then((obj) => {
     retrievePosition(obj.data, true);
   });
-  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
+  // console.log(cityInput.value);
 }
 searchForm.addEventListener("submit", searchCity);
 
@@ -185,8 +185,8 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  }
-
+}
+  
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "2d0f7b27af6ec29632e031d46a498d7e";
@@ -194,7 +194,6 @@ function getForecast(coordinates) {
   apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.coords.latitude}&lon=${coordinates.coords.longitude}&appid=${apiKey}&units=metric`;
   
   console.log(apiUrl);
-  
 }
 
 
@@ -215,14 +214,18 @@ function retrievePosition(position, bool) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-
-navigator.geolocation.getCurrentPosition(retrievePosition);
+//navigator.geolocation.getCurrentPosition(retrievePosition);  <- I think this is repeated.
 
 let currentLocation = document.querySelector("#current-city");
 currentLocation.addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 });
 
+
+// let lastLocation  = document.querySelector("#last-city");
+// lastLocation.addEventListener("click", () => {
+//   navigator.geolocation.getLastLocation ()
+//  });
 // ---------------------- Temperature ----------------------
 
 var mod = true;
